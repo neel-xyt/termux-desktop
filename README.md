@@ -1,5 +1,5 @@
 # termux-own-desktop
-it's own desktop of tarmux using xfce desktop. you using the tarmux GUI mod 
+it's own desktop of tarmux using xfce desktop. easily use the tarmux GUI mod 
 
 • lightweight size 2.2GB.
 # Frist
@@ -14,4 +14,4 @@ chack your ABI of CPU
 
 </details>
 
- Downloa the [tarmux](https://github.com/termux/termux-app/releases/tag/v0.118.0) app of your ABI version.
+ Downloa the [tarmux](https://github.com/termux/termux-app/releases/tag/v0.118.0) app of your ABI variant.
