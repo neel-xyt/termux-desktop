@@ -56,5 +56,4 @@ pkg install firefox
 # desktop-launcher
 install this dash filed
 ```
-wget https://github.com/Iamnod/File-s/blob/main/xfce4.sh
 ```
