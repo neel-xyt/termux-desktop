@@ -15,3 +15,5 @@ chack your ABI of CPU
 </details>
 
  Downloa the [tarmux](https://github.com/termux/termux-app/releases/tag/v0.118.0) app of your ABI variant.
+ 
+ Download the [tarmux x11](https://github.com/termux/termux-x11/releases) app of your ABI variant.this is type of VNC.
