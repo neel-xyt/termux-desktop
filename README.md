@@ -50,3 +50,8 @@ pkg install chromium
 ```
 
 install firefox using this comment:
+```
+pkg install firefox
+```
+# desktop-launcher
+install this dash filed
