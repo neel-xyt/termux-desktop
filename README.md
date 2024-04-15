@@ -23,14 +23,14 @@ this is type of VNC.
 
  open the tarmux app
 
-run the update and upgrade comment:
+• run the update and upgrade comment:
 
 ```
 pkg update -y
 pkg upgrade -y
 ```
 
-install the following packages in Termux:
+• install the following packages in Termux:
 ```
 pkg install x11-repo
 pkg install termux-x11-nightly
@@ -38,11 +38,11 @@ pkg install pulseaudio
 pkg install tur-repo
 ```
 
-than install the desktop xfce4 using this comment:
+• than install the desktop xfce4 using this comment:
 ```
 pkg install xfce4
 ```
-then install any Browser of your choice chromium , firefox.
+• then install any Browser of your choice chromium , firefox.
 
 install chromium using this comment:
 ```
