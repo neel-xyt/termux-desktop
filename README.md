@@ -54,6 +54,10 @@ install firefox using this comment:
 pkg install firefox
 ```
 # desktop-launcher
-install this dash filed
+create a dash filed using this comment:
 ```
+nano xfce4.sh
 ```
+xfce4.sh dash file script:
+```
+
