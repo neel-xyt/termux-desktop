@@ -60,6 +60,7 @@ pkg install code-oss
 # desktop-launcher
 create a dash filed using this comment:
 ```
+pkg install nano
 nano xfce4.sh
 ```
 xfce4.sh dash file script:
@@ -94,3 +95,17 @@ exit 0
 • Then seve the file using ```control + s and control + x ```
 <details>
 <summary>image</summary>
+ 
+![image 2](https://github.com/Iamnod/termux-own-desktop/assets/166691075/12b243f2-34ff-4eba-86b5-e544d67be65d)
+</details>
+# end 
+finely change the mod fo xfce4.sh  file using this comment:
+
+```
+chmod +x xfce4.sh
+```
+ran the file 
+
+```
+./xfcs4.sh
+```
