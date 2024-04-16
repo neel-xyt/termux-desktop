@@ -53,6 +53,10 @@ install firefox using this comment:
 ```
 pkg install firefox
 ```
+install vs code using this comment:
+```
+pkg install code-oss
+```
 # desktop-launcher
 create a dash filed using this comment:
 ```
