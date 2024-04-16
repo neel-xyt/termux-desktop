@@ -113,8 +113,8 @@ ran the file
 
 open tarmux x11 app go to  PREFERENCES
 
-```•on Fullscreen on device display.```
+```•on(Fullscreen on device display).```
 
-```•on PIP mode```
+```•on(PIP mode)```
 
-``` •off Show additional keyboard```
+``` •off(Show additional keyboard)```
