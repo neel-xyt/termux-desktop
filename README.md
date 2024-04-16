@@ -80,7 +80,7 @@ termux-x11 :0 >/dev/null &
 # Wait a bit until termux-x11 gets started.
 sleep 3
 
-# Launch Termux X11 main activity
+# Launch  Termux X11 main activity
 am start --user 0 -n com.termux.x11/com.termux.x11.MainActivity > /dev/null 2>&1
 sleep 1
 
@@ -109,3 +109,12 @@ ran the file
 ```
 ./xfcs4.sh
 ```
+# tarmux x11 settings 
+
+open tarmux x11 app go to  PREFERENCES
+
+```•on Fullscreen on device display.```
+
+```•on PIP mode```
+
+``` •off Show additional keyboard```
