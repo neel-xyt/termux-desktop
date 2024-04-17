@@ -61,6 +61,7 @@ pkg install code-oss
 
 xfce4.sh file comment:
 ```
+pkg install git -y
 git clone https://github.com/Iamnod/termux-own-desktop.git
 ```
 next commented:
