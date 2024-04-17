@@ -70,7 +70,6 @@ cd termux-own-desktop
 finely change the mod fo xfce4.sh 
 ```
 chmod +x xfce4.sh
-
 ```
 run the file
 ```
