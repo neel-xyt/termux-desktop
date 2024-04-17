@@ -2,6 +2,7 @@
 it's own desktop of tarmux using xfce desktop. easily use the tarmux GUI mod 
 
 • lightweight size 2.2GB.
+![image0](https://github.com/Iamnod/termux-own-desktop/assets/166691075/26ccb03f-0983-473b-a5a9-8c30ce3ba9da)
 # download-the-required-applications
 
 • check your device CPU architecture using [CPU info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo)app.
