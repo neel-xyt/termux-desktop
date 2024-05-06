@@ -65,10 +65,6 @@ xfce4.sh file comment:
 pkg install wget -y
 wget https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/xfce4.sh
 ```
-next commented:
-```
-cd termux-own-desktop
-```
 finely change the mod fo xfce4.sh 
 ```
 chmod +x xfce4.sh
