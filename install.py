@@ -71,7 +71,7 @@ if h == "y":
 
 """)
 	print(f"{GREEN}[*] tarmux desktop successfully install {RESET}")
-	print(f"{GREEN}[*] start the desktop using this command:[{RESET}{PURPLE} ./xfce4.sh{RESET}{GREEN}]{RESET")
+	print(f"{GREEN}[*] start the desktop using this command:[{RESET}{PURPLE} ./xfce4.sh{RESET}{GREEN}]{RESET}")
 if h == "n":
 	os.system("exit")
 
