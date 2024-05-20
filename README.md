@@ -24,7 +24,6 @@ Paste following command in Termux
 # installation
 * this comment using dash
 ```
-curl https://raw.githubusercontent.com/neel-xyt/termux-desktop/main/tarmux-desktop.sh >> tarmux-desktop.sh
-bash tarmux-desktop.sh
+curl https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/termux-desktop.sh >> termux-desktop.sh
+bash termux-desktop.sh
 ```
-
