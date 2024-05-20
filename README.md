@@ -20,6 +20,9 @@ chack your ABI of CPU
 • Download the [tarmux x11](https://github.com/termux/termux-x11/releases) app of your ABI variant.
 this is type of VNC.
 installed tarmux desktop 
+Paste following command in Termux
+# installation
+* this comment using bash
 ```
 curl https://raw.githubusercontent.com/neel-xyt/termux-desktop/main/tarmux-desktop.sh >> tarmux-desktop.sh
 bash tarmux-desktop.sh
