@@ -1,7 +1,7 @@
 # termux-own-desktop
 it's own desktop of tarmux using xfce desktop. easily use the tarmux GUI mod 
 
-• lightweight size 2.2GB.
+• lightweight size 2GB.
 ![image0](https://github.com/Iamnod/termux-own-desktop/assets/166691075/26ccb03f-0983-473b-a5a9-8c30ce3ba9da)
 # download-the-required-applications
 
@@ -19,11 +19,13 @@ chack your ABI of CPU
 
 • Download the [tarmux x11](https://github.com/termux/termux-x11/releases) app of your ABI variant.
 this is type of VNC.
-installed tarmux desktop 
-Paste following command in Termux
 # installation
+installed tarmux desktop
 * this comment using dash
 ```
 curl https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/termux-desktop.sh >> termux-desktop.sh
 bash termux-desktop.sh
 ```
+# manually
+installing 
+[manually](https://github.com/neel-xyt/termux-desktop/blob/main/Manually.md)
