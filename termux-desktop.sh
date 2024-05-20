@@ -34,11 +34,11 @@ pkg install pulseaudio -y
 pkg install tur-repo -y
 clear
 	echo -e "\e[32m [#]installing desktop xfce4...\e[l0m"
-#pkg install xfce4
+pkg install xfce4
 clear
 	echo -e "\e[32m [#]installing chromium and vs code... \e[l0m"
-#pkg install chromium -y
-#pkg install code-oss -y
+pkg install chromium -y
+pkg install code-oss -y
 clear
 	echo -e "\e[32m [#]installing desktop launcher \e[0m"
 pkg install wget
@@ -66,6 +66,7 @@ echo -e "\e[32m
 \e[0m"
 echo -e "\e[32m [✓]successfully installed \e[0m"
 echo -e "\e[32m [*]launch the desktop using this command   [ ./xfce4.sh ] \e[0m"
+rm termux-desktop.sh
   # Add your action commands here
 }
 
