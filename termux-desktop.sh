@@ -33,10 +33,10 @@ pkg install termux-x11-nightly -y
 pkg install pulseaudio -y
 pkg install tur-repo -y
 clear
-	echo -e "\e[32m [#]installing desktop xfce4...\e[l0m"
-pkg install xfce4
+	echo -e "\e[32m [#]installing desktop xfce4...\e[0m"
+pkg install xfce4 -y
 clear
-	echo -e "\e[32m [#]installing chromium and vs code... \e[l0m"
+	echo -e "\e[32m [#]installing chromium and vs code... \e[0m"
 pkg install chromium -y
 pkg install code-oss -y
 clear
@@ -81,7 +81,7 @@ answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
 if [[ "$answer" == "y" ]]; then
   perform_action
 elif [[ "$answer" == "n" ]]; then
-  echo -e "\e[31m try again using this command  [ dash termux-desktop.sh ] \e[0m" 
+  echo -e "\e[31m try again using this command  [ bash termux-desktop.sh ] \e[0m" 
 else
   echo -e "\e[33mInvalid input. Please answer with 'y' or 'n'.\e[0m" # Yellow text for invalid input
 fi
