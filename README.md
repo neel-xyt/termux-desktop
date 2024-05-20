@@ -21,7 +21,7 @@ chack your ABI of CPU
 this is type of VNC.
 installed tarmux desktop 
 ```
-curl https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/tarmux-desktop.sh >> tarmux-desktop.sh
+curl https://raw.githubusercontent.com/neel-xyt/termux-desktop/main/tarmux-desktop.sh >> tarmux-desktop.sh
 bash tarmux-desktop.sh
 ```
 
