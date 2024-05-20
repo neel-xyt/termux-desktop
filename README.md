@@ -22,9 +22,9 @@ this is type of VNC.
 installed tarmux desktop 
 Paste following command in Termux
 # installation
-* this comment using bash
+* this comment using dash
 ```
 curl https://raw.githubusercontent.com/neel-xyt/termux-desktop/main/tarmux-desktop.sh >> tarmux-desktop.sh
-bash tarmux-desktop.sh
+dash tarmux-desktop.sh
 ```
 
