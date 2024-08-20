@@ -19,4 +19,6 @@ bash -c "$(curl -fsSL https://raw.githubusercontent.com/Iamnod/termux-own-deskto
 ```
 ### manually
 installing 
-[manually](https://github.com/neel-xyt/termux-desktop/blob/main/Manually.md)
+[manually](https://github.com/neel-xyt/termux-desktop/blob/main/Manually.md).
+
+enjoy :)
