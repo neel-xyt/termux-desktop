@@ -1,5 +1,5 @@
 # termux-own-desktop
-it's own desktop of tarmux using xfce desktop. easily use the tarmux GUI mod 
+basically it is a termux own desktop environment | xfce4 
 
 • lightweight size 2GB.
 ![image0](https://github.com/Iamnod/termux-own-desktop/assets/166691075/26ccb03f-0983-473b-a5a9-8c30ce3ba9da)
@@ -15,7 +15,7 @@ chack your ABI of CPU
 
 </details>
 
-• Downloa the [tarmux](https://github.com/termux/termux-app/releases/tag/v0.118.0) app of your ABI variant.
+• Downloa the [tarmux](https://f-droid.org/en/packages/com.termux/) app in your android device.
 
 • Download the [tarmux x11](https://github.com/termux/termux-x11/releases) app of your ABI variant.
 this is type of VNC.
