@@ -23,8 +23,7 @@ this is type of VNC.
 installed tarmux desktop
 * this comment using dash
 ```
-curl https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/termux-desktop.sh >> termux-desktop.sh
-bash termux-desktop.sh
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/termux-desktop.sh)"
 ```
 # manually
 installing 
