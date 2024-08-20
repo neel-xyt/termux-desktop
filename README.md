@@ -3,7 +3,7 @@ basically it is a termux own desktop environment | xfce4
 
 ## applications
 
-* check your device CPU architecture using [CPU info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo)app.
+* check your device CPU architecture using [CPU info](https://play.google.com/store/apps/details?id=com.kgurgul.cpuinfo) app.
  
 chack your ABI of CPU
 
