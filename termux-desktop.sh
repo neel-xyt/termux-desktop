@@ -66,7 +66,7 @@ echo -e "\e[32m
 \e[0m"
 echo -e "\e[32m [✓]successfully installed \e[0m"
 echo -e "\e[32m [*]launch the desktop using this command   [ ./xfce4.sh ] \e[0m"
-rm termux-desktop.sh
+#rm termux-desktop.sh
   # Add your action commands here
 }
 
