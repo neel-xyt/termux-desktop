@@ -19,7 +19,8 @@ A desktop environment for Termux, allowing you to run xfce4 (a lightweight Linux
    To install the Termux desktop environment using a simple script, run this command:
 
    ```bash
-   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/termux-desktop.sh)"
+   bash -c "$(curl -fsSL https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/install.sh)"
+   ```
 ## Manual Installation
-For manual setup, follow the detailed instructions in this [guide](https://github.com/neel-xyt/termux-desktop/blob/main/Manually.md).
+For manual setup, follow the detailed instructions in this [guide](https://github.com/neel-xyt/termux-desktop/blob/main/MANUALLY.md).
 
