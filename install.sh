@@ -1,83 +1,115 @@
-#!/data/data/com.termux/files/usr/bin/bash
-clear
-echo -e "\e[32m
-                oMMMMN;
-                 .KMMMMk.
-                   lWMMMWc
-                    .0MMMM0.
-                       .kMMMMK.
-                         ;NMMMMo
-                          .WMMMMk
-                         :WMMMMl
-                       .OMMMMK.
-                      lWMMMWc
-                    .KMMMMO.
-                   oMMMMW:
-                 .KMMMMk.            0KKKKKKKKKKKKKKKKc
-                dMMMMN,              WMMMMMMMMMMMMMMMMo
+#!/bin/bash
 
-					by neel-xyt
+# ---------- Colors ----------
+RED="\033[31m"
+GREEN="\033[32m"
+YELLOW="\033[33m"
+BLUE="\033[34m"
+PURPLE="\033[35m"
+RESET="\033[0m"
 
-\e[0m"
-
-perform_action() {
+# ---------- Functions ----------
+clear_screen() {
     clear
-    echo -e "\e[32m[#] Updating packages...\e[0m"
-    pkg update -y && pkg upgrade -y
-
-    clear
-    echo -e "\e[32m[#] Installing repositories and dependencies...\e[0m"
-    pkg install -y x11-repo tur-repo
-
-    clear
-    echo -e "\e[32m[#] Installing essential packages...\e[0m"
-    pkg install -y termux-x11-nightly pulseaudio xfce4 wget
-
-    # Optional packages - only install if not present
-    command -v chromium >/dev/null || pkg install -y chromium
-    command -v code-oss >/dev/null || pkg install -y code-oss
-
-    clear
-    echo -e "\e[32m[#] Downloading desktop launcher...\e[0m"
-    if wget https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/xfce4.sh; then
-        chmod +x xfce4.sh
-    else
-        echo -e "\e[31m[!] Failed to download xfce4.sh. Check your internet or URL.\e[0m"
-        exit 1
-    fi
-
-    clear
-    echo -e "\e[32m
-                oMMMMN;
-                 .KMMMMk.
-                   lWMMMWc
-                    .0MMMM0.
-                       .kMMMMK.
-                         ;NMMMMo
-                          .WMMMMk
-                         :WMMMMl
-                       .OMMMMK.
-                      lWMMMWc
-                    .KMMMMO.
-                   oMMMMW:
-                 .KMMMMk.            0KKKKKKKKKKKKKKKKc
-                dMMMMN,              WMMMMMMMMMMMMMMMMo
-
-  					by neel-xyt
-
-\e[0m"
-    echo -e "\e[32m[✓] Successfully installed Termux desktop environment\e[0m"
-    echo -e "\e[32m[*] Launch it anytime using: [ ./xfce4.sh ]\e[0m"
 }
 
-echo -ne "\e[32m[*] Have you already installed the Termux desktop XFCE4 before? (y/n): \e[0m"
-read answer
-answer=$(echo "$answer" | tr '[:upper:]' '[:lower:]')
+print_banner() {
+    echo -e "${GREEN}
+                oMMMMN;
+                 .KMMMMk.
+                   lWMMMWc
+                    .0MMMM0.
+                      cWMMMWl
+                       .kMMMMK.
+                         ;NMMMMo
+                          .WMMMMk
+                         :WMMMMl
+                       .OMMMMK.
+                      lWMMMWc
+                    .KMMMMO.
+                   oMMMMW:
+                 .KMMMMk.            0KKKKKKKKKKKKKKKKc
+                dMMMMN,              WMMMMMMMMMMMMMMMMo${RESET}"
+}
 
-if [[ "$answer" == "y" ]]; then
-    perform_action
-elif [[ "$answer" == "n" ]]; then
-    echo -e "\e[31mTry again using this command: [ bash termux-desktop.sh ]\e[0m"
+run_command() {
+    "$@"
+    if [ $? -ne 0 ]; then
+        echo -e "${RED}[!] Command failed: $@${RESET}"
+        exit 1
+    fi
+}
+
+install_desktop() {
+    clear_screen
+    echo -e "${GREEN}[*] Updating packages...${RESET}"
+    run_command yes | pkg update
+    run_command pkg upgrade -y
+
+    clear_screen
+    echo -e "${GREEN}[*] Installing required packages...${RESET}"
+    packages=(x11-repo termux-x11-nightly pulseaudio tur-repo xfce4 wget)
+    for pkg in "${packages[@]}"; do
+        run_command pkg install -y "$pkg"
+    done
+
+    clear_screen
+    echo -e "${GREEN}[*] Downloading desktop launcher...${RESET}"
+    run_command wget https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/xfce4.sh
+
+    # Setup launcher
+    setup_launcher
+
+    clear_screen
+    print_banner
+    echo -e "${GREEN}[*] Termux desktop successfully installed!${RESET}"
+    echo -e "${GREEN}[*] Start the desktop using: ${PURPLE}xn dex${RESET}"
+}
+
+setup_launcher() {
+    echo -e "${GREEN}[*] Setting up launcher command 'xn dex'...${RESET}"
+    BIN_DIR="$HOME/bin"
+    mkdir -p "$BIN_DIR"
+
+    # Move the original script to ~/bin/dex
+    mv xfce4.sh "$BIN_DIR/dex"
+    chmod +x "$BIN_DIR/dex"
+
+    # Create wrapper script 'xn'
+    cat > "$BIN_DIR/xn" <<'EOF'
+#!/bin/bash
+if [ "$1" == "dex" ]; then
+    ~/bin/dex
 else
-    echo -e "\e[33mInvalid input. Please answer with 'y' or 'n'.\e[0m"
+    echo "Usage: xn dex"
+fi
+EOF
+
+    chmod +x "$BIN_DIR/xn"
+
+    # Ensure ~/bin is in PATH
+    if ! grep -q 'export PATH=$HOME/bin:$PATH' ~/.bashrc; then
+        echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
+    fi
+    # Apply PATH immediately
+    export PATH="$HOME/bin:$PATH"
+
+    echo -e "${GREEN}[*] You can now start the desktop by running: ${PURPLE}xn dex${RESET}"
+}
+
+# ---------- Main ----------
+clear_screen
+print_banner
+
+read -p "$(echo -e "${PURPLE}[*] Have you installed Termux Desktop XFCE4?${RESET} [y/n] >> ")" choice
+choice=${choice,,}  # convert to lowercase
+
+if [[ "$choice" == "y" ]]; then
+    install_desktop
+elif [[ "$choice" == "n" ]]; then
+    echo -e "${YELLOW}[*] Exiting...${RESET}"
+    exit 0
+else
+    echo -e "${RED}[!] Invalid choice. Please enter 'y' or 'n'.${RESET}"
+    exit 1
 fi
