@@ -4,7 +4,6 @@
 RED="\033[31m"
 GREEN="\033[32m"
 YELLOW="\033[33m"
-BLUE="\033[34m"
 PURPLE="\033[35m"
 RESET="\033[0m"
 
@@ -55,59 +54,75 @@ install_desktop() {
 
     clear_screen
     echo -e "${GREEN}[*] Downloading desktop launcher...${RESET}"
-    run_command wget https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/xfce4.sh
+    wget -q --show-progress https://raw.githubusercontent.com/Iamnod/termux-own-desktop/main/xfce4.sh -O xfce4.sh
 
-    # Setup launcher
+    # Check if download was successful
+    if [ ! -s xfce4.sh ]; then
+        echo -e "${RED}[!] Failed to download xfce4.sh. Please check your internet connection.${RESET}"
+        exit 1
+    fi
+
     setup_launcher
 
     clear_screen
     print_banner
     echo -e "${GREEN}[*] Termux desktop successfully installed!${RESET}"
-    echo -e "${GREEN}[*] Start the desktop using: ${PURPLE}xn dex${RESET}"
+    echo -e "${GREEN}[*] Start the desktop using: ${PURPLE}dexn${RESET}"
 }
 
 setup_launcher() {
-    echo -e "${GREEN}[*] Setting up launcher command 'xn dex'...${RESET}"
+    echo -e "${GREEN}[*] Setting up launcher command 'dexn'...${RESET}"
     BIN_DIR="$HOME/bin"
     mkdir -p "$BIN_DIR"
 
-    # Move the original script to ~/bin/dex
-    mv xfce4.sh "$BIN_DIR/dex"
-    chmod +x "$BIN_DIR/dex"
+    # Move downloaded launcher
+    mv xfce4.sh "$BIN_DIR/xfce4-launch"
+    chmod +x "$BIN_DIR/xfce4-launch"
 
-    # Create wrapper script 'xn'
-    cat > "$BIN_DIR/xn" <<'EOF'
+    # Create simple command 'dexn'
+    cat > "$BIN_DIR/dexn" <<'EOF'
 #!/bin/bash
-if [ "$1" == "dex" ]; then
-    ~/bin/dex
-else
-    echo "Usage: xn dex"
-fi
+# Start XFCE Desktop in Termux X11
+~/bin/xfce4-launch
 EOF
 
-    chmod +x "$BIN_DIR/xn"
+    chmod +x "$BIN_DIR/dexn"
 
-    # Ensure ~/bin is in PATH
+    # Add to PATH if not already added
     if ! grep -q 'export PATH=$HOME/bin:$PATH' ~/.bashrc; then
         echo 'export PATH=$HOME/bin:$PATH' >> ~/.bashrc
     fi
-    # Apply PATH immediately
-    export PATH="$HOME/bin:$PATH"
 
-    echo -e "${GREEN}[*] You can now start the desktop by running: ${PURPLE}xn dex${RESET}"
+    # Apply immediately
+    export PATH="$HOME/bin:$PATH"
+    source ~/.bashrc
+
+    # Verify
+    if command -v dexn >/dev/null 2>&1; then
+        echo -e "${GREEN}[*] Command 'dexn' successfully installed!${RESET}"
+    else
+        echo -e "${YELLOW}[!] Please restart Termux or run 'source ~/.bashrc' manually.${RESET}"
+    fi
 }
 
 # ---------- Main ----------
 clear_screen
 print_banner
 
-read -p "$(echo -e "${PURPLE}[*] Have you installed Termux Desktop XFCE4?${RESET} [y/n] >> ")" choice
-choice=${choice,,}  # convert to lowercase
+# Check if already installed
+if [ -f "$HOME/bin/dexn" ]; then
+    echo -e "${YELLOW}[!] XFCE desktop already installed.${RESET}"
+    echo -e "${GREEN}[*] Start it using: ${PURPLE}dexn${RESET}"
+    exit 0
+fi
+
+read -p "$(echo -e "${PURPLE}[*] Install Termux XFCE desktop now?${RESET} [y/n] >> ")" choice
+choice=${choice,,} # lowercase
 
 if [[ "$choice" == "y" ]]; then
     install_desktop
 elif [[ "$choice" == "n" ]]; then
-    echo -e "${YELLOW}[*] Exiting...${RESET}"
+    echo -e "${YELLOW}[*] Installation canceled.${RESET}"
     exit 0
 else
     echo -e "${RED}[!] Invalid choice. Please enter 'y' or 'n'.${RESET}"
