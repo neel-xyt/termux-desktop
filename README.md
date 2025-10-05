@@ -40,7 +40,7 @@ This installer will:
 
 Start the desktop anytime by running:
 ```
-xn dex
+dexn
 ```
 This launches the XFCE4 session in ``Termux-X11.``
 
@@ -52,6 +52,6 @@ For manual setup, follow the detailed instructions in this [guide](https://githu
 ### Notes
 Ensure *~/bin* is in your *PATH*. The installer automatically adds it to *~/.bashrc*.
 
-`xn dex` is a wrapper command: the script dex runs *XFCE4*, and *xn* allows calling it with the argument *dex*.
+`dexn` is a wrapper command: the script dex runs *XFCE4*, and *xn* allows calling it with the argument *dex*.
 
 If you face any issues with PulseAudio or X11, restart Termux and try again.
